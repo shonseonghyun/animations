@@ -28,6 +28,10 @@ const Box = styled(motion.div)`
     background-color: white;
     border-radius: 20px;
     height: 200px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 `;
 
 const Overlay = styled(motion.div)`
@@ -45,6 +49,12 @@ const OverlayBox = styled(motion.div)`
     border-radius: 20px;
     width: 400px;
     height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const Text = styled.p`
 `;
 
 
@@ -79,7 +89,9 @@ const Project = () => {
                 {
                     ["1","2","3","4"].map((idx)=>(
                         <Box key={idx} onClick={()=>setVisible(idx)} layoutId={idx}>
-                            {idx}
+                            <Text>
+                                {idx}
+                            </Text>
                         </Box>
                     ))
                 }
@@ -94,7 +106,11 @@ const Project = () => {
                                 exit="exits"
                                 onClick={()=>setVisible(null)}
                             >
-                                <OverlayBox layoutId={visible}>{visible}</OverlayBox>
+                                <OverlayBox layoutId={visible}>
+                                    <Text>
+                                        {visible}
+                                    </Text>
+                                </OverlayBox>
                             </Overlay> 
                     </AnimatePresence>
                     : 
