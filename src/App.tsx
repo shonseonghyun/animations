@@ -1,6 +1,6 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Boxs from "./components/Boxs/Boxs";
-import Prj1 from "./components/Prj/Prj1";
+import Project from "./components/Prj/Project";
 
 
 function App() {
@@ -8,17 +8,17 @@ function App() {
     <>
     
       <BrowserRouter>
-        {/* <ul>
+        <ul>
           <li>
             <Link to={'/boxs'}>Boxs</Link>
           </li>
           <li>
-            <Link to={'/prj1'}>Prj1</Link>
+            <Link to={'/project'}>Prj1</Link>
           </li>
-        </ul> */}
+        </ul>
         <Routes>
           <Route path="/boxs" element={<Boxs />}></Route>
-          <Route path="/prj1" element={<Prj1 />}></Route>
+          <Route path="/project" element={<Project />}></Route>
         </Routes>
 
       </BrowserRouter>

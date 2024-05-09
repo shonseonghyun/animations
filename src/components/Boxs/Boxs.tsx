@@ -55,7 +55,6 @@ const Boxs = () => {
       <Box7 />
       <Box8 />
       <Box9 />
-      <Box10 />
     </Wrapper>
     )
 };

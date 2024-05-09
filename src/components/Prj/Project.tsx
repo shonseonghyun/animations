@@ -31,10 +31,10 @@ const Box = styled(motion.div)`
 `;
 
 const Overlay = styled(motion.div)`
+    position: absolute;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,48 +57,51 @@ const overlayVariants = {
         // opacity:1,
         backgroundColor:"rgba(0,0,0,0.5)",
         transition:{
-            duration:0.3
+            duration:0.5 //백그라운드컬러 변화 소요시간
         }
     },
     exits:{
         // opacity:0,
         backgroundColor:"rgba(0,0,0,0)",
-        transition:{
-            duration:0.3
+        transition:{ 
+            duration:0.5 //백그라운드컬러 변화 소요시간
         }
     }
 }
 
-const Prj1 = () => {
-    const [clicked,setClicked] = useState(false);
-    const toggle = ()=>{
-        setClicked((prev)=>!prev);
-    }
+const Project = () => {
+    //버튼 구별할 수 있는 state
+    const [visible,setVisible] = useState<null|string>();
 
     return (
-        <Wrapper onClick={toggle}>
+        <Wrapper>
             <Grid>
-                <Box layoutId='hello'/>
-                <Box />
-                <Box />
-                <Box />
+                {
+                    ["1","2","3","4"].map((idx)=>(
+                        <Box key={idx} onClick={()=>setVisible(idx)} layoutId={idx}>
+                            {idx}
+                        </Box>
+                    ))
+                }
             </Grid>
 
-            <AnimatePresence>
-                {clicked 
+                {visible 
                     ? 
-                    <Overlay variants={overlayVariants}
-                        initial="initial"
-                        animate="animate"
-                        exit="exits">
-                        <OverlayBox  layoutId='hello' />
-                    </Overlay> 
+                    <AnimatePresence>
+                            <Overlay variants={overlayVariants}
+                                initial="initial"
+                                animate="animate"
+                                exit="exits"
+                                onClick={()=>setVisible(null)}
+                            >
+                                <OverlayBox layoutId={visible}>{visible}</OverlayBox>
+                            </Overlay> 
+                    </AnimatePresence>
                     : 
                     null
                 }
-            </AnimatePresence>
         </Wrapper>        
     );
 };
 
-export default Prj1;
+export default Project;
