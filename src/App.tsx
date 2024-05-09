@@ -8,6 +8,7 @@ import Box5 from "./components/Box5";
 import Box6 from "./components/Box6";
 import Box7 from "./components/Box7";
 import Box8 from "./components/Box8";
+import Box9 from "./components/Box9";
 
 const Wrapper = styled(motion.div)`
   height: 200vh;
@@ -17,7 +18,7 @@ const Wrapper = styled(motion.div)`
   align-items: center;
   display:grid ;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   place-items: center;
   background:linear-gradient(135deg,#e09,#d0e);
 `;
@@ -50,6 +51,7 @@ function App() {
       <Box6 />
       <Box7 />
       <Box8 />
+      <Box9 />
     </Wrapper>
 
   );
